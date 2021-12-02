@@ -87,9 +87,9 @@ class Hlc<T> implements Comparable<Hlc> {
     if (canonical.logicalTime >= remote.logicalTime) return canonical;
 
     // Assert the node id
-    if (canonical.nodeId == remote.nodeId) {
-      throw DuplicateNodeException(canonical.nodeId.toString());
-    }
+    // if (canonical.nodeId == remote.nodeId) {
+    //   throw DuplicateNodeException(canonical.nodeId.toString());
+    // }
     // Assert the remote clock drift
     if (remote.millis - millis > _maxDrift) {
       throw ClockDriftException(remote.millis, millis);
